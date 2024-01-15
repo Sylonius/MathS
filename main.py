@@ -67,11 +67,11 @@ class MathProblems:
                     if(int(tempString) > int(largestPalYet)):
                         largestPalYet = tempString
         return largestPalYet
-    def SmallestMultiple(num2, num1 = 0, increment = 1):
+    def SmallestMultiple(num2, num1 = 1, increment = 1):
         n = 1
         while (True): #janky do while loop
             didEvenlyDivide = True
-            for i in range(num1,num2+1,increment):
+            for i in range(num2,num1,-increment):
                 if(n % i != 0):
                     didEvenlyDivide = False
                     break
