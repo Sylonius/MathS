@@ -68,6 +68,10 @@ class MathProblems:
                         largestPalYet = tempString
         return largestPalYet
     def SmallestMultiple(num2, num1 = 1, increment = 1):
+        if(num1 > num2):
+            tempNum = num1
+            num1 = num2
+            num2 = tempNum
         n = 1
         while (True): #janky do while loop
             didEvenlyDivide = True
@@ -85,7 +89,7 @@ class MathProblems:
 if __name__ == '__main__':
     for i in range(1,20):
         start_time = time.time()
-        print(MathProblems.SmallestMultiple(i,1), i)
+        print(MathProblems.SmallestMultiple(i), i)
         end_time = time.time()
         execution_time = end_time - start_time
         print("Execution time:", round(execution_time,5), "seconds")
