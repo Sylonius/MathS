@@ -74,6 +74,7 @@ class MathProblems:
             for i in range(num1,num2+1,increment):
                 if(n % i != 0):
                     didEvenlyDivide = False
+                    break
             if (didEvenlyDivide == False): #condition
                 n += 1
                 continue
