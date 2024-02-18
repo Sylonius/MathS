@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Made &quot;SmallestMultiple&quot; have an exception case for when the parameters are swapped.">
+    <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Finished &quot;Sum Square Difference&quot;, &quot;Find Prime By Index&quot; (&quot;Check If Prime&quot; as helper), &quot;Largest Product In A Series&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -35,14 +35,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="MathS" />
@@ -123,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705284470801</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished &quot;Sum Square Difference&quot;, &quot;Find Prime By Index&quot; (&quot;Check If Prime&quot; as helper), &quot;Largest Product In A Series&quot;">
+      <option name="closed" value="true" />
+      <created>1707590064540</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707590064540</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,22 +151,18 @@
     <MESSAGE value="Made &quot;SmallestMultiple&quot; faster: break if already failed 175-48 seconds" />
     <MESSAGE value="Made &quot;SmallestMultiple&quot; faster: run modulus checks backwards 48-34" />
     <MESSAGE value="Made &quot;SmallestMultiple&quot; have an exception case for when the parameters are swapped." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made &quot;SmallestMultiple&quot; have an exception case for when the parameters are swapped." />
+    <MESSAGE value="Finished &quot;Sum Square Difference&quot;, &quot;Find Prime By Index&quot; (&quot;Check If Prime&quot; as helper), &quot;Largest Product In A Series&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished &quot;Sum Square Difference&quot;, &quot;Find Prime By Index&quot; (&quot;Check If Prime&quot; as helper), &quot;Largest Product In A Series&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>104</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>123</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
