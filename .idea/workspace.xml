@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Finished &quot;HighlyDivisibleTriangularNumber&quot; and it's helper function &quot;GetFactors&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Finished &quot;LargeSum&quot; and it's helper function &quot;ListOfObjects&quot;, I would recomend fixing &quot;LargeSum&quot; to be more efficient/works with not just python. It just adds all the 100 digit numbers not caring about the storage.">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708487389262</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Finished &quot;LargeSum&quot; and it's helper function &quot;ListOfObjects&quot;, I would recomend fixing &quot;LargeSum&quot; to be more efficient/works with not just python. It just adds all the 100 digit numbers not caring about the storage.">
+      <option name="closed" value="true" />
+      <created>1709276961511</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709276961511</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,7 +177,8 @@
     <MESSAGE value="Finished &quot;Sum Square Difference&quot;, &quot;Find Prime By Index&quot; (&quot;Check If Prime&quot; as helper), &quot;Largest Product In A Series&quot;" />
     <MESSAGE value="Finished &quot;Largest Product In a Grid&quot; and its helper method &quot;Parse String To Grid&quot;" />
     <MESSAGE value="Finished &quot;HighlyDivisibleTriangularNumber&quot; and it's helper function &quot;GetFactors&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished &quot;HighlyDivisibleTriangularNumber&quot; and it's helper function &quot;GetFactors&quot;" />
+    <MESSAGE value="Finished &quot;LargeSum&quot; and it's helper function &quot;ListOfObjects&quot;, I would recomend fixing &quot;LargeSum&quot; to be more efficient/works with not just python. It just adds all the 100 digit numbers not caring about the storage." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished &quot;LargeSum&quot; and it's helper function &quot;ListOfObjects&quot;, I would recomend fixing &quot;LargeSum&quot; to be more efficient/works with not just python. It just adds all the 100 digit numbers not caring about the storage." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -179,11 +187,6 @@
           <url>file://$PROJECT_DIR$/main.py</url>
           <line>150</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>246</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

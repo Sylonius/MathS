@@ -240,7 +240,7 @@ class MathProblems:
         list.append(tempObjects)
         return list
     def LargeSum(_numDigits, _str):
-        """this method will add all of the numbers in _str, then find the first _numDigits digits in it. """
+        """this method will add all the numbers in _str, then find the first _numDigits digits in it. """
         objects = MathProblems.ListOfObjects(_str)
         sum = 0
         for i in objects:
