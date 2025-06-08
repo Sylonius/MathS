@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Finished &quot;NumberToWords&quot; and it's helper function &quot;NumberLetterCounts&quot;, made different classes to help organize the euler problems in hundreds. began problem 824/the least solved problem (&quot;ChessSliders&quot;) as well as the helper function &quot;ComputeAllPowersUpTo&quot; created to commonly used functions: &quot;choose&quot; and &quot;factorial&quot; which do their mathematical functions respectively.">
-      <change afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719810993367</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finished &quot;NumberToWords&quot; and it's helper function &quot;NumberLetterCounts&quot;, made different classes to help organize the euler problems in hundreds. began problem 824/the least solved problem (&quot;ChessSliders&quot;) as well as the helper function &quot;ComputeAllPowersUpTo&quot; created to commonly used functions: &quot;choose&quot; and &quot;factorial&quot; which do their mathematical functions respectively.">
+      <option name="closed" value="true" />
+      <created>1749414436322</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749414436322</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
