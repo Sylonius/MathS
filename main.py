@@ -19,7 +19,7 @@ def test(_start, _end):
     timeArray = []
     for i in range(_start, _end):
         start_time = time.time()
-        testedAnswer = str(runFunction(i, True))
+        testedAnswer = str(runFunction(i, True))[:-1]
         #print("The tested answer is " + str(testedAnswer) + " | The actual answer is " + str(answerArray[i-1]))
         if (testedAnswer == answerArray[i-1]):
             #print(str(i) + " is good")
@@ -111,10 +111,10 @@ if __name__ == '__main__':
 
 
     #print(Functions.Tools.CheckIfPandigital(12))
-    print(runFunction(43))
+    #print(runAllFunctions())
 
     #print(runFunction(35, True, True))
-    #test(1,30)  #inclusive, exclusive
+    test(1,30)  #inclusive, exclusive
 
 
     end_time = time.time()

@@ -330,7 +330,7 @@ def f019_CountingSundays(_startYear = 1901, _endYear = 2000):
         janFirst = janFirst % 7
         for month in range(12):
             if (monthArray[month] + janFirst) % 7 == 0:
-                print("year ", year, "|month ", month+1, " was a sunday")
+                #print("year ", year, "|month ", month+1, " was a sunday")
                 sundayCount += 1
         #print(year, "|", janFirst)
     return sundayCount
