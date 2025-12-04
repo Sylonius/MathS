@@ -3,6 +3,7 @@ import Functions as f
 import time
 import requests
 
+#bit of a test for LazyGit
 def test(_start, _end):
     """Tests the chosen functions in the "Functions" file. goes from Project Euler question _start to _end (inclusive, exclusive)"""
     answerFile = open(r"E:\Python IDE\Projects\MathS\Refrence Files\Answers.txt", "r")
