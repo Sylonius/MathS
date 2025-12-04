@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Finished &quot;NumberToWords&quot; and it's helper function &quot;NumberLetterCounts&quot;, made different classes to help organize the euler problems in hundreds. began problem 824/the least solved problem (&quot;ChessSliders&quot;) as well as the helper function &quot;ComputeAllPowersUpTo&quot; created to commonly used functions: &quot;choose&quot; and &quot;factorial&quot; which do their mathematical functions respectively.">
+    <list default="true" id="786b3a9b-e355-4bf7-beb6-4c9173749cb4" name="Changes" comment="Have overhauled main.py with a series of functions to test veracity of questions with incorrect answers and times to complete, Have also finished up to question 42">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757887016134</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Have overhauled main.py with a series of functions to test veracity of questions with incorrect answers and times to complete, Have also finished up to question 42">
+      <option name="closed" value="true" />
+      <created>1757888717704</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1757888717704</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,35 +233,31 @@
     <MESSAGE value="Finished &quot;HighlyDivisibleTriangularNumber&quot; and it's helper function &quot;GetFactors&quot;" />
     <MESSAGE value="Finished &quot;LargeSum&quot; and it's helper function &quot;ListOfObjects&quot;, I would recomend fixing &quot;LargeSum&quot; to be more efficient/works with not just python. It just adds all the 100 digit numbers not caring about the storage." />
     <MESSAGE value="Finished &quot;NumberToWords&quot; and it's helper function &quot;NumberLetterCounts&quot;, made different classes to help organize the euler problems in hundreds. began problem 824/the least solved problem (&quot;ChessSliders&quot;) as well as the helper function &quot;ComputeAllPowersUpTo&quot; created to commonly used functions: &quot;choose&quot; and &quot;factorial&quot; which do their mathematical functions respectively." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished &quot;NumberToWords&quot; and it's helper function &quot;NumberLetterCounts&quot;, made different classes to help organize the euler problems in hundreds. began problem 824/the least solved problem (&quot;ChessSliders&quot;) as well as the helper function &quot;ComputeAllPowersUpTo&quot; created to commonly used functions: &quot;choose&quot; and &quot;factorial&quot; which do their mathematical functions respectively." />
+    <MESSAGE value="Have overhauled main.py with a series of functions to test veracity of questions with incorrect answers and times to complete, Have also finished up to question 42" />
+    <option name="LAST_COMMIT_MESSAGE" value="Have overhauled main.py with a series of functions to test veracity of questions with incorrect answers and times to complete, Have also finished up to question 42" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Functions.py</url>
-          <line>492</line>
+          <line>495</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Functions.py</url>
-          <line>511</line>
+          <line>514</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Functions.py</url>
-          <line>639</line>
+          <line>642</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Functions.py</url>
-          <line>804</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Functions.py</url>
-          <line>800</line>
-          <option name="timeStamp" value="102" />
+          <line>900</line>
+          <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

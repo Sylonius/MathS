@@ -111,10 +111,10 @@ if __name__ == '__main__':
 
 
     #print(Functions.Tools.CheckIfPandigital(12))
-    #print(runAllFunctions())
+    print(runFunction(47))
 
     #print(runFunction(35, True, True))
-    test(1,30)  #inclusive, exclusive
+    #test(1,30)  #inclusive, exclusive
 
 
     end_time = time.time()

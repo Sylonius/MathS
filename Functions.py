@@ -2,6 +2,9 @@ import math
 import sys
 import numpy as np
 from collections import Counter
+from itertools import count
+from sympy import divisors
+from math import isqrt
 
 
 #------------------------------------1 through 100------------------------------------------------
@@ -746,7 +749,50 @@ def f042_CodedTriangleNumbers(_fileString = open(r"E:\Python IDE\Projects\MathS\
         if name in triangleNums:
             numberOfValidWords += 1
     return numberOfValidWords
-def f04s3_SubStringDivisibility():
+def f043_SubStringDivisibility():
+    """Find all pandigital numbers that have the patern where their 3 digit substrings are divisible by primes
+    This function will return the sum of all 0-9 pandigital numbers with this property"""
+    #perms = Tools.AllPermutations(10)
+    primeList = Tools.SieveOfEra(17)
+    allowedDigits = [(0,1,2,3,4,5,6,7,8,9)]*10
+    for primeIndex in range(len(primeList)):
+        tripletAllowedDigits = ["","",""]
+        tempNum = 0
+        while tempNum < 1000:
+            tempNum += primeList[primeIndex]
+            if tempNum > 1000:
+                break
+            tempNumStr = "0" * (3 - len(str(tempNum)))+str(tempNum)
+            #print(tempNumStr)
+            for i in range(3):
+                tripletAllowedDigits[i] += tempNumStr[i]
+        for digitSetIndex in range(3):
+            tempAllowedDigits = ()
+            for i in range(10):
+                if str(i) in tripletAllowedDigits[digitSetIndex]:
+                    tempAllowedDigits += (i,)
+            tripletAllowedDigits[digitSetIndex] = tempAllowedDigits
+        for i in range(3):
+            for j in range(10):
+                if (j in allowedDigits[i+primeIndex+1] and j not in tripletAllowedDigits[i]):
+                    allowedDigits[i+primeIndex+1] = tuple(x for x in allowedDigits[i+primeIndex+1] if x != j)
+    #print(allowedDigits)
+    #used AI to help generate the recursive section of this code
+    listOfValidPandigitals = Tools.GeneratePandigitals(allowedDigits, False)
+    #check each pandigital for divisibility purposes
+    validSum = 0
+    for pandigitalNum in listOfValidPandigitals:
+        thisNumGood = True
+        for primeIndex in range(len(primeList)):
+            if int(str(pandigitalNum)[1+primeIndex:4+primeIndex]) % primeList[primeIndex] != 0:
+                thisNumGood = False
+                break
+        if thisNumGood:
+            #print(pandigitalNum, " is also a good")
+            validSum += pandigitalNum
+    #print(validSum)
+    return validSum
+def f043_a1_SubStringDivisibility():
     """I realised that my other version of this function had a core flaw and decided to start over
     after 2 hours :(, it is also kind of slow"""
     allowedDigits = []
@@ -766,49 +812,180 @@ def f04s3_SubStringDivisibility():
                 break
         if thisNumGood:
             print(pandigitalNum, " is also a good")
-def f043_SubStringDivisibility():
-    """Find all pandigital numbers that have the patern where their 3 digit substrings are divisible by primes
-    This function will return the sum of all 0-9 pandigital numbers with this property"""
-    #perms = Tools.AllPermutations(10)
-    primeList = Tools.SieveOfEra(17)
-    allowedDigits = [(0,1,2,3,4,5,6,7,8,9)]+[()]*9
-    for primeIndex in range(len(primeList)):
-        tripletAllowedDigits = ["","",""]
-        tempNum = 0
-        while tempNum < 1000:
-            tempNum += primeList[primeIndex]
-            if tempNum > 1000:
+def f044_PentagonNumbers():
+    """Find the pair of pentagonal numbers where their sum and difference are also both pentagonal
+    return the difference between them, This one really stumped me: this solution
+    is from https://math.berkeley.edu/~elafandi/euler/p44/
+    I would like to revisit this problem and create my own function for this solution"""
+    for d in count(1):
+        Pd2 = d * (3 * d - 1)
+        for a in divisors(Pd2):
+            b = Pd2 // a
+            if b < 3 * a:
                 break
-            tempNumStr = "0" * (3 - len(str(tempNum)))+str(tempNum)
-            print(tempNumStr)
-            for i in range(3):
-                tripletAllowedDigits[i] += tempNumStr[i]
-        for digitSetIndex in range(len(tripletAllowedDigits)):
-            tempAllowedDigits = ()
-            for i in range(10):
-                if str(i) in tripletAllowedDigits[digitSetIndex]:
-                    tempAllowedDigits += (i,)
-            tripletAllowedDigits[digitSetIndex] = tempAllowedDigits
-        for i in range(3):
-            #if allowedDigits[i+primeIndex+1] == "":
-            #print(allowedDigits[i+primeIndex+1])
-            #print(tripletAllowedDigits[i])
-            allowedDigits[i+primeIndex+1] += tripletAllowedDigits[i]
-    print(allowedDigits)
-    #used AI to help generate the recursive section of this code
-    listOfValidPandigitals = Tools.GeneratePandigitals(allowedDigits, False)
-    #check each pandigital for divisibility purposes
-    for pandigitalNum in listOfValidPandigitals:
-        thisNumGood = True
-        for primeIndex in range(len(primeList)):
-            if int(str(pandigitalNum)[1+primeIndex:4+primeIndex]) % primeList[primeIndex] != 0:
-                thisNumGood = False
+            if b % 3 == 2:
+                c = (b + 1) // 3
+                if a % 2 == c % 2:
+                    k = (a + c) // 2
+                    j = (c - a) // 2
+                    Pk2 = k * (3 * k - 1)
+                    Pj2 = j * (3 * j - 1)
+                    Ps2 = Pk2 + Pj2
+                    if isqrt(1 + 12 * Ps2) ** 2 == 1 + 12 * Ps2 and (1 + isqrt(1 + 12 * Ps2)) % 6 == 0:
+                        return Pd2 // 2
+def f044_a3_PentagonNumbers():
+    """Find the pair of pentagonal numbers where their sum and difference are also both pentagonal
+        return the difference between them - This is the same as attempt 1 but I am trying to optimise
+        the crap out of it - still seems to be slow, im going to try a more math based aproach"""
+    # formula for pentagonal numbers: n(3n-1)/2
+    import time
+    start_time = time.time()
+    foundAnswer = False
+    pentagonalNums = [0]
+    index = 1
+    while not foundAnswer and index < 10000:
+        index = len(pentagonalNums)
+        newNum = int(index * (3 * index - 1) / 2)
+        d = newNum
+        for c in pentagonalNums:
+            a = (2 * c - d)
+            if a in pentagonalNums:
+                b = (d - c)
+                if b in pentagonalNums:
+                    if a < b < c < d:
+                        print("solution found | a: ", a, ", b: ", b, ", c: ", c, ", d: ", d)
+                        return
+                else:
+                    #print("Not a solution found | a: ", a, ", b: ", b, ", c: ", c, ", d: ", d)
+                    pass
+        if index % 250 == 0:
+            print("index: ", index, "=", pentagonalNums[index-1])
+            end_time = time.time()
+            execution_time = end_time - start_time
+            print("Execution time:", round(execution_time, 5), "seconds")
+            start_time = time.time()
+        # print("Not a solution | a: ", 2*c-d, ", b: ", d-c, ", c: ", c, ", d: ", d)
+        pentagonalNums.append(newNum)
+    print(pentagonalNums)
+    return "Didn't find any solutions"
+def f044_a2_PentagonNumbers():
+    """Find the pair of pentagonal numbers where their sum and difference are also both pentagonal
+    return the difference between them, this attempt is even worse than the first, taking over 20 seconds to get to index 150"""
+    #formula for pentagonal numbers: n(3n-1)/2
+    import time
+    start_time = time.time()
+    foundAnswer = False
+    pentagonalNums = [1,5,12,22]
+    index = 6
+    closestDif = None
+    while not foundAnswer and index < 10000:
+        index = len(pentagonalNums)+1
+        newNum = int(index * (3 * index - 1) / 2)
+        d = newNum
+        for A in range(len(pentagonalNums)):
+            a = pentagonalNums[A]
+            for B in range(A+1,len(pentagonalNums)):
+                b = pentagonalNums[B]
+                for C in range(B+1,len(pentagonalNums)):
+                    c = pentagonalNums[C]
+                    for D in range(C+1,len(pentagonalNums)):
+                        d = pentagonalNums[D]
+                        if b-c == a and b+c == d:
+                            print("solution found | a: ", a, ", b: ", b, ", c: ", c, ", d: ", d )
+                            return
+                        else:
+                            #print("Not a solution found | a: ", a, ", b: ", b, ", c: ", c, ", d: ", d)
+
+                            pass
+        if index % 25 == 0:
+            print("index: ", index, "=", pentagonalNums[index-2])
+            end_time = time.time()
+            execution_time = end_time - start_time
+            print("Execution time:", round(execution_time, 5), "seconds")
+            start_time = time.time()
+                #print("Not a solution | a: ", 2*c-d, ", b: ", d-c, ", c: ", c, ", d: ", d)
+        pentagonalNums.append(newNum)
+    print(pentagonalNums)
+    return "Didn't find any solutions"
+def f044_a1_PentagonNumbers():
+    """Find the pair of pentagonal numbers where their sum and difference are also both pentagonal
+    return the difference between them - ran for 10 minutes and didn't get an answer, need to find a more
+    efficient solution"""
+    #formula for pentagonal numbers: n(3n-1)/2
+    import time
+    start_time = time.time()
+    foundAnswer = False
+    pentagonalNums = [0]
+    index = 1
+    closestDif = None
+    while not foundAnswer and index < 10000:
+        index = len(pentagonalNums)
+        newNum = int(index * (3 * index - 1) / 2)
+        d = newNum
+        for c in pentagonalNums:
+            a = (2*c-d)
+            b = (d-c)
+            if b in pentagonalNums and a in pentagonalNums:
+                if a < b < c < d:
+                    print("solution found | a: ", a, ", b: ", b, ", c: ", c, ", d: ", d )
+                    return
+            else:
+                print("Not a solution found | a: ", a, ", b: ", b, ", c: ", c, ", d: ", d)
+
+                pass
+        #if index % 250 == 0:
+        #    print("index: ", index, "=", pentagonalNums[index-1])
+        #    end_time = time.time()
+        #    execution_time = end_time - start_time
+        #    print("Execution time:", round(execution_time, 5), "seconds")
+        #    start_time = time.time()
+                #print("Not a solution | a: ", 2*c-d, ", b: ", d-c, ", c: ", c, ", d: ", d)
+        pentagonalNums.append(newNum)
+    print(pentagonalNums)
+    return "Didn't find any solutions"
+def f045_TriangularPentagonalHexagonal():
+    pass
+def f045_a1_TriangularPentagonalHexagonal():
+    """Going to just try the brute force method, suprize suprise, it doesn't work"""
+    #T(n) = n(n+1)/2        P(n) = n(3n-1)/2        H(n) = n(2n-1)
+    for T in count(2):
+        Tn = int(T*(T+1) / 2)
+        for P in range(T):
+            Pn = int(P*(3*P-1) / 2)
+            if Tn == Pn:
+                for H in range(T):
+                    Hn = int(H * (2*H -1))
+                    if Hn == Tn:
+                        print("T: {}, P: {}, H: {}, Common Number: {}".format(T,P,H,Tn))
+                        #return
+def f046_GoldBachsOtherConjecture():
+    primes = Tools.SieveOfEra(10000)
+    squareNums = []
+    for i in range(100):
+        squareNums.append(i**2)
+    compositNums = []
+    for i in range(3,10000,2):
+        if i not in primes:
+            compositNums.append(i)
+    for compositNum in compositNums:
+        hasBeenFound = False
+        for prime in primes:
+            if prime > compositNum:
                 break
-        if thisNumGood:
-            print(pandigitalNum, " is also a good")
-
-    return #len(perms)
-
+            else:
+                for square in squareNums:
+                    if(prime + (2 * square)) == compositNum:
+                        #print("found it for {}, {} + 2 x {}^2".format(compositNum,prime,square))
+                        hasBeenFound = True
+                        break
+        if not hasBeenFound:
+            return compositNum
+    return
+def f047_DistinctPrimesFactors():
+    primeList = Tools.SieveOfEra(1000)
+    for i in range(40000):
+        Tools.CanonicalPrimeFactorisation(i)
+    return
 #------------------------------------101 through 200----------------------------------------------
 #------------------------------------201 through 300----------------------------------------------
 #------------------------------------301 through 400----------------------------------------------
